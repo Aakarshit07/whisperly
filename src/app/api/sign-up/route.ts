@@ -69,8 +69,7 @@ export async function POST(request: Request) {
                 success: false,
                 message: emailResponse.message
             }, 
-            {status: 500}
-            )
+            {status: 500})
         }
 
         return Response.json ({
