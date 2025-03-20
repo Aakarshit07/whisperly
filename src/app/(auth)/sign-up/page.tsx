@@ -167,7 +167,7 @@ const page = () => {
                   Please Wait
                 </>
               ) : (
-                "SignUp"
+                "Sign Up"
               )}
             </Button>
           </form>
