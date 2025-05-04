@@ -12,17 +12,15 @@ export async function POST(request: Request) {
      
     try {
         const {username, code} = await request.json();
-        
         //!For decoding the url when reciving data in url
         const decodedUsername = decodeURIComponent(username);
-
-        const user = await UserModel.findOne({usernmae: decodedUsername})
+        const user = await UserModel.findOne({username: decodedUsername});
 
         if(!user) {
             return Response.json({
                 success: false,
                 message: "User not found"
-            }, {status: 500})
+            }, {status: 404})
         }
 
         const isCodeValid = user.verifyCode === code;
